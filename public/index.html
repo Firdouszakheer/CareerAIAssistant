@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firdous — AI Career Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAV ═══════════════════════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo" id="logo-link">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L8 8H2l4.5 4-1.7 6L12 15l7.2 3-1.7-6L22 8h-6L12 2z"/></svg>
+        </div>
+        <span class="logo-text">Career Assistant</span>
+      </a>
+      <div class="nav-links">
+        <a href="#trending">Explore</a>
+        <a href="#how">How It Works</a>
+        <a href="#form-section" class="nav-cta">Get Started →</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HOME PAGE ═════════════════════════════════════════════════════════ -->
+  <div id="home-page">
+
+    <!-- HERO -->
+    <section class="hero" id="form-section">
+      <div class="hero-bg-orb orb1"></div>
+      <div class="hero-bg-orb orb2"></div>
+      <div class="hero-inner">
+
+        <!-- Left copy -->
+        <div class="hero-copy">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>AI-Powered Career Guidance</span>
+          </div>
+          <h1 class="hero-title">
+            Discover the path<br>
+            <em>you were meant for.</em>
+          </h1>
+          <p class="hero-sub">
+            Stop guessing. Get personalized, data-backed career recommendations
+            based on your unique interests, skills, and academic background —
+            powered by AI .
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="stat-num">50+</span>
+              <span class="stat-lbl">Career Paths</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-num">100%</span>
+              <span class="stat-lbl">Free</span>
+            </div>
+            <div class="hero-stat">
+              <span class="stat-num">&lt;5s</span>
+              <span class="stat-lbl">AI Response</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right form -->
+        <div class="form-card" id="advice-form">
+          <div class="form-head">
+            <h2>Find your direction</h2>
+            <p>Tell us about yourself to get started.</p>
+          </div>
+
+          <!-- Interest -->
+          <div class="field">
+            <label for="interest">What are you interested in?</label>
+            <div class="input-wrap">
+              <input type="text" id="interest" placeholder="e.g. medicine, technology, design…" autocomplete="off" />
+              <button class="search-hint-btn" id="search-interest-btn" title="Search careers in this field" style="display:none">
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Academic -->
+          <div class="field">
+            <label for="academic">Academic Background</label>
+            <div class="input-wrap">
+              <input type="text" id="academic" placeholder="e.g. 3.2 GPA in Nursing, CS student…" autocomplete="off" />
+              <button class="search-hint-btn" id="search-academic-btn" title="Search typical backgrounds for this field" style="display:none">
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+            <div class="field-hint" id="academic-hint"></div>
+          </div>
+
+          <!-- Skills -->
+          <div class="field">
+            <label for="skills">Current Skills</label>
+            <div class="input-wrap">
+              <textarea id="skills" placeholder="e.g. Python, public speaking, Figma, data analysis…"></textarea>
+              <button class="search-hint-btn textarea-search" id="search-skills-btn" title="Find common skills for this field" style="display:none">
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/><path d="M15 15l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+            <div class="field-hint" id="skills-hint"></div>
+          </div>
+
+          <!-- Goal -->
+          <div class="field">
+            <label for="goal">Career Goal <span class="optional">optional</span></label>
+            <select id="goal">
+              <option value="">Select a goal…</option>
+              <option>High salary &amp; financial security</option>
+              <option>Work-life balance</option>
+              <option>Making social impact</option>
+              <option>Creative expression</option>
+              <option>Entrepreneurship &amp; leadership</option>
+              <option>Stability &amp; job security</option>
+            </select>
+          </div>
+
+          <!-- Suggestion chips area (shown after AI search) -->
+          <div class="suggestions-area" id="suggestions-area" style="display:none">
+            <div class="suggestions-label" id="suggestions-label"></div>
+            <div class="suggestion-chips" id="suggestion-chips"></div>
+          </div>
+
+          <div class="error-banner" id="form-error" style="display:none"></div>
+
+          <button class="btn-primary" id="main-btn" onclick="submitAdvice()">
+            <span id="btn-text">Get Career Advice</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRENDING -->
+    <section class="trending-section" id="trending">
+      <div class="section-inner">
+        <div class="section-label">Explore</div>
+        <h2 class="section-title">Trending Career Paths</h2>
+        <p class="section-sub">Explore some of the fastest-growing and most rewarding careers in today's market.</p>
+        <div class="trending-grid" id="trending-grid"></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how">
+      <div class="section-inner">
+        <div class="section-label" style="color:var(--gold)">Process</div>
+        <h2 class="section-title" style="color:var(--cream)">How APP Works</h2>
+        <p class="section-sub" style="color:rgba(248,245,240,0.55)">Our AI analyzes your unique profile to generate a personalized career blueprint in seconds.</p>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Share Your Profile</h3>
+            <p>Enter your interests, academic background, skills, and goals. Missing a field? Our AI will search for the best answer automatically.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>AI Analysis</h3>
+            <p>AI on Groq analyzes your profile against real-world career data to surface the best-fit opportunities.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Get Your Blueprint</h3>
+            <p>Receive 3 personalized career recommendations with salary data, step-by-step roadmaps, and key skills.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3>Chat &amp; Refine</h3>
+            <p>Ask follow-up questions, explore alternatives, and drill deeper with your personal AI career advisor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /home-page -->
+
+  <!-- ═══ RESULTS PAGE ══════════════════════════════════════════════════════ -->
+  <div id="results-page" style="display:none">
+    <div class="results-header">
+      <button class="back-btn" id="back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12L3 8l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Assessment
+      </button>
+      <h2>Your Career Blueprint</h2>
+      <p id="results-subtitle">Personalized recommendations based on your profile</p>
+    </div>
+
+    <div class="results-body">
+      <!-- Loading -->
+      <div class="loading-state" id="loading-state">
+        <div class="spinner"></div>
+        <p>Analyzing your profile with AI…</p>
+        <span>This takes about 3–5 seconds</span>
+      </div>
+
+      <!-- Content -->
+      <div id="results-content" style="display:none"></div>
+
+      <!-- Chat -->
+      <div class="chat-section" id="chat-section" style="display:none">
+        <div class="chat-header">
+          <div class="chat-avatar">L</div>
+          <div>
+            <h3>Ask a follow-up question</h3>
+            <p>Chat with your personal AI career advisor</p>
+          </div>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-row">
+          <input type="text" id="chat-input"
+            placeholder="Ask anything about your career options…"
+            onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendChat(); }" />
+          <button class="chat-send" id="chat-send-btn" onclick="sendChat()">
+            Ask <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Built with</span>
+    <strong>AI · Groq API</strong>
+    <span>· Firdous AI Career Advisor</span>
+  </footer>
+
+  <script src="/js/trending.js"></script>
+  <script src="/js/search.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

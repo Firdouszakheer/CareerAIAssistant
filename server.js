@@ -32,7 +32,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`✦ Lumina running on http://0.0.0.0:${PORT}`);
+  console.log(`✦ Firdous running on http://0.0.0.0:${PORT}`);
   if (!process.env.GROQ_API_KEY) {
     console.warn('⚠  GROQ_API_KEY not set in .env — AI features will fail.');
   }
