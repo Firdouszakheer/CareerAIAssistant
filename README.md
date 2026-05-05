@@ -1,4 +1,4 @@
-# ✦ Lumina — AI Career Advisor
+# ✦  AI Career Advisor
 
 > Personalized, AI-powered career guidance using **LLaMA 3.1** on **Groq** (free & fast).
 
